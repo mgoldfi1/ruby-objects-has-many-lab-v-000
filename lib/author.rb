@@ -1,9 +1,10 @@
 class Author
   attr_accessor :name
-
+@@authors = []
   def initialize(name)
     @name = name
     @posts = []
+    @@authors << self 
   end
 
   def posts
@@ -20,6 +21,15 @@ class Author
     @posts << post
     post.author = self
   end
+
+  def self.post_count
+   count = []
+    @@authors.each do |x|
+      count << x.posts.count
+    end
+    count.inject(0){|sum,x| sum + x}
+  end
+    
 
 
 
