@@ -1,10 +1,11 @@
 class Artist
   attr_accessor :name
-@@all_songs = []
+@@all_artists = []
 
   def initialize(name)
     @name = name
     @songs = []
+    @@all_artists << self 
   end
 
   def songs
@@ -19,13 +20,17 @@ class Artist
  def add_song_by_name(song_name)
    song = Song.new(song_name)
    @songs << song
-   @@all_songs << song
    song.artist = self
  end
 
 
  def self.song_count
-  @@all_songs.count
+   count = []
+  @@all_artists.each do |x|
+    count << x.songs.count
+  end
+  count.inject(0){|sum,x| sum + x }
+
 end
 
 
