@@ -4,7 +4,7 @@ class Author
   def initialize(name)
     @name = name
     @posts = []
-    @@authors << self 
+    @@authors << self
   end
 
   def posts
@@ -29,7 +29,7 @@ class Author
     end
     count.inject(0){|sum,x| sum + x}
   end
-    
+
 
 
 
