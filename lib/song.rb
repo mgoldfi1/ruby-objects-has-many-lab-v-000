@@ -10,7 +10,7 @@ class Song
     if self.artist
       self.artist.name
     end
-  end 
+  end
 
 
 
